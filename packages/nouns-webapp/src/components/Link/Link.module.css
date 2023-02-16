@@ -1,8 +1,9 @@
 .link,
 .link:hover,
 .link:active {
-  color: var(--brand-dark-red);
+  color: #4F8235;
+  text-decoration: none;
 }
 .link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }

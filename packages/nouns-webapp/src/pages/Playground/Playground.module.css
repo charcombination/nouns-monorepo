@@ -16,22 +16,30 @@
 }
 
 .primaryBtn {
+  /** TODO: Fix blue inheritance */
   width: 100%;
   height: 4rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  border-radius: 12px;
-  background-color: var(--brand-dark-red);
-  border: var(--brand-dark-red);
+  /* border-radius: 12px; */
+  background-color: #3B8526;
+  border-top: 4px solid #6BC349;
+  border-bottom: 4px solid #2A631D;
+  border-radius: 0px;
 }
 .primaryBtn:focus,
 .primaryBtn:hover {
-  background-color: var(--brand-dark-red) !important;
-  box-shadow: 0 0 0 0.2rem rgb(214, 60, 94, 0.75);
+  background-color: #3B8526;
+  border-top: 4px solid #6BC349;
+  border-bottom: 4px solid #2A631D;
+  border-radius: 0px;
 }
-.primaryBtn:active {
-  background-color: var(--brand-dark-red) !important;
+
+.comment {
+  margin-top: 35px;
+  margin-bottom: 15px;
 }
+
 .traitForm {
   height: 4rem;
 }
@@ -39,7 +47,7 @@
   height: 100% !important;
   width: 100%;
   margin: 0.5rem 0;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   background-color: white !important;
   border-color: #e2e3e8 !important;
   font-size: 18px;
@@ -61,7 +69,7 @@
   font-style: italic;
 }
 .nounImg {
-  border-radius: 16px;
+  /* border-radius: 16px; */
 }
 .nounImg:hover {
   cursor: pointer;
@@ -69,4 +77,49 @@
 }
 .nounWrapper {
   margin-bottom: 1rem;
+}
+
+.nounskinImg:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+canvas {
+  /*background: #e1d7d5;
+   border-radius: 16px; */
+  padding-top: 16px;
+}
+
+.canvaswrapper {
+  position: relative;
+}
+
+.canvaswrapper button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+
+  background-color: rgba(0,0,0,0.0);
+  transition: all 0.2s;
+  border: 0px;
+}
+
+.canvaswrapper button img {
+  width: 100%;
+}
+
+.canvaswrapper button:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.download {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+}
+
+.movement {
+  position: absolute;
+  top: 64px;
+  right: 14px;
 }

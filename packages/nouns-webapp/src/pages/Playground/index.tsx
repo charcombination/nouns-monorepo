@@ -14,12 +14,15 @@ import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from 'reac
 import Link from '../../components/Link';
 import { ImageData, getNounData, getRandomNounSeed } from '@nouns/assets';
 import { buildSVG, EncodedImage, PNGCollectionEncoder } from '@nouns/sdk';
-import InfoIcon from '../../assets/icons/Info.svg';
 import Noun from '../../components/Noun';
-import NounModal from './NounModal';
 import { PNG } from 'pngjs';
 import { Trans } from '@lingui/macro';
-import { i18n } from '@lingui/core';
+import ReactSkinview3d from "react-skinview3d"
+import { WalkingAnimation } from "skinview3d";
+import walking from '../../assets/icons/Walking.png';
+import standing from '../../assets/icons/Standing.png';
+import download from '../../assets/icons/Download.png';
+import ImageOverlay from '../../components/ImageOverlay';
 
 interface Trait {
   title: string;
@@ -32,26 +35,20 @@ interface PendingCustomTrait {
   filename: string;
 }
 
-const nounsProtocolLink = (
-  <Link
-    text={<Trans>Nouns Protocol</Trans>}
-    url="https://www.notion.so/Noun-Protocol-32e4f0bf74fe433e927e2ea35e52a507"
-    leavesPage={true}
-  />
-);
 
-const nounsAssetsLink = (
+
+const nounsSiteLink = (
   <Link
-    text="nouns-assets"
+    text="Nouns Website"
     url="https://github.com/nounsDAO/nouns-monorepo/tree/master/packages/nouns-assets"
     leavesPage={true}
   />
 );
 
-const nounsSDKLink = (
+const skinview3Dlink = (
   <Link
-    text="nouns-sdk"
-    url="https://github.com/nounsDAO/nouns-monorepo/tree/master/packages/nouns-sdk"
+    text="React Skinview3D"
+    url="https://github.com/Hacksore/react-skinview3d"
     leavesPage={true}
   />
 );
@@ -96,16 +93,41 @@ const Playground: React.FC = () => {
   const [isPendingTraitValid, setPendingTraitValid] = useState<boolean>();
 
   const customTraitFileRef = useRef<HTMLInputElement>(null);
+  const [overlay, setOverlay] = useState<string | null>(null);
+  const [color, setColor] = useState<string | null>("#d5d7e1");
+  const [skinImages, setSkinImages] = useState<string[] | null>();
+
+  function handleOverlayGenerated(base64: string | null) {
+    setOverlay(base64);
+  }
+
+  function downloadBase64Image(base64: string, filename: string) {
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = base64;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  function handleDownloadClick() {
+    downloadBase64Image(overlay!, 'noun.png');
+  }
 
   const generateNounSvg = React.useCallback(
     (amount: number = 1) => {
       for (let i = 0; i < amount; i++) {
         const seed = { ...getRandomNounSeed(), ...modSeed };
         const { parts, background } = getNounData(seed);
+        setSkinImages(parts.map(item => item.skin))
+        setColor(`#${background}`)
+        console.log(parts)
         const svg = buildSVG(parts, encoder.data.palette, background);
         setNounSvgs(prev => {
-          return prev ? [svg, ...prev] : [svg];
+          /* return prev ? [svg, ...prev] : [svg]; */
+          return [svg, svg]
         });
+        
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -130,7 +152,7 @@ const Playground: React.FC = () => {
     );
 
     if (initLoad) {
-      generateNounSvg(8);
+      generateNounSvg(2);
       setInitLoad(false);
     }
   }, [generateNounSvg, initLoad]);
@@ -250,31 +272,16 @@ const Playground: React.FC = () => {
 
   return (
     <>
-      {displayNoun && indexOfNounToDisplay !== undefined && nounSvgs && (
-        <NounModal
-          onDismiss={() => {
-            setDisplayNoun(false);
-          }}
-          svg={nounSvgs[indexOfNounToDisplay]}
-        />
-      )}
-
       <Container fluid="lg">
         <Row>
           <Col lg={10} className={classes.headerRow}>
             <span>
-              <Trans>Explore</Trans>
+              <Trans>Nounish Skins</Trans>
             </span>
             <h1>
-              <Trans>Playground</Trans>
+              <Trans>Skin Builder</Trans>
             </h1>
-            <p>
-              <Trans>
-                The playground was built using the {nounsProtocolLink}. Noun's traits are determined
-                by the Noun Seed. The seed was generated using {nounsAssetsLink} and rendered using
-                the {nounsSDKLink}.
-              </Trans>
-            </p>
+            
           </Col>
         </Row>
         <Row>
@@ -286,7 +293,7 @@ const Playground: React.FC = () => {
                 }}
                 className={classes.primaryBtn}
               >
-                <Trans>Generate Nouns</Trans>
+                <Trans>Generate Noun</Trans>
               </Button>
             </Col>
             <Row>
@@ -322,90 +329,85 @@ const Playground: React.FC = () => {
                   );
                 })}
             </Row>
-            <label style={{ margin: '1rem 0 .25rem 0' }} htmlFor="custom-trait-upload">
-              <Trans>Upload Custom Trait</Trans>
-              <OverlayTrigger
-                trigger="hover"
-                placement="top"
-                overlay={
-                  <Popover>
-                    <div style={{ padding: '0.25rem' }}>
-                      <Trans>Only 32x32 PNG images are accepted</Trans>
-                    </div>
-                  </Popover>
-                }
-              >
-                <Image
-                  style={{ margin: '0 0 .25rem .25rem' }}
-                  src={InfoIcon}
-                  className={classes.voteIcon}
-                />
-              </OverlayTrigger>
-            </label>
-            <Form.Control
-              type="file"
-              id="custom-trait-upload"
-              accept="image/PNG"
-              isValid={isPendingTraitValid}
-              isInvalid={isPendingTraitValid === false}
-              ref={customTraitFileRef}
-              className={classes.fileUpload}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                validateAndSetCustomTrait(e.target.files?.[0])
-              }
-            />
-            {pendingTrait && (
-              <>
-                <FloatingLabel label="Custom Trait Type" className={classes.floatingLabel}>
-                  <Form.Select
-                    aria-label="Custom Trait Type"
-                    className={classes.traitFormBtn}
-                    onChange={e => setPendingTrait({ ...pendingTrait, type: e.target.value })}
-                  >
-                    {Object.entries(traitKeyToTitle).map(([key, title]) => (
-                      <option value={key}>{capitalizeFirstLetter(title)}</option>
-                    ))}
-                  </Form.Select>
-                </FloatingLabel>
-                <Button onClick={() => uploadCustomTrait()} className={classes.primaryBtn}>
-                  <Trans>Upload</Trans>
-                </Button>
-              </>
-            )}
-            <p className={classes.nounYearsFooter}>
-              <Trans>
-                You've generated{' '}
-                {i18n.number(parseInt(nounSvgs ? (nounSvgs.length / 365).toFixed(2) : '0'))} years
-                worth of Nouns
-              </Trans>
-            </p>
           </Col>
           <Col lg={9}>
             <Row>
               {nounSvgs &&
                 nounSvgs.map((svg, i) => {
                   return (
-                    <Col xs={4} lg={3} key={i}>
-                      <div
+                    <Col xs={6} lg={6} key={i}>
+                      {i % 2 === 0 ? (
+                        <div
                         onClick={() => {
                           setIndexOfNounToDisplay(i);
                           setDisplayNoun(true);
                         }}
-                      >
-                        <Noun
+                        >
+                          <Noun
                           imgPath={`data:image/svg+xml;base64,${btoa(svg)}`}
                           alt="noun"
                           className={classes.nounImg}
                           wrapperClassName={classes.nounWrapper}
-                        />
-                      </div>
+                          />
+                        </div>
+                      ) : (
+                        <div className={classes.canvaswrapper} style={{backgroundColor: `${color}`}}
+                        >
+                          { skinImages &&
+                          <ImageOverlay 
+                            images={skinImages}
+                            onOverlayGenerated={handleOverlayGenerated}
+                          />
+                          }
+
+                          {
+                            overlay &&
+                            <ReactSkinview3d
+                            className="viewer"
+                            skinUrl={overlay}
+                            height={400}
+                            width={400}
+                            onReady={({ viewer }) => {
+                              viewer.autoRotate = false;
+                              viewer.fov = 36;
+                              viewer.controls.enablePan = false;
+                              viewer.controls.enableRotate = false;
+                              viewer.controls.enableZoom = false;
+
+                              viewer.camera.position.x = 27.5;
+                              viewer.camera.position.y = 22.5;
+                              viewer.camera.position.z = 52.0;
+
+                              viewer.animation = new WalkingAnimation();
+                              viewer.animation.speed = 0.7;
+                            }}
+                          />
+                          }
+
+                          <button className={classes.download} onClick={handleDownloadClick}>
+                            <img src={download} alt="Download" />
+                          </button>
+
+                          <button className={classes.movement}>
+                            <img src={walking} alt="Toggle Movement" />
+                          </button>
+                        </div>
+                      )}
+                      
                     </Col>
                   );
                 })}
             </Row>
           </Col>
         </Row>
+        <p className={classes.comment}>
+          <Trans>
+            This site generates Minecraft skins based on Nouns, a generative NFT project. The avatars and skins are in the public domain. 
+            The project was built based on the open-source {nounsSiteLink}, the skins are rendered with {skinview3Dlink}.
+          </Trans>
+        </p>
       </Container>
+      
     </>
   );
 };
