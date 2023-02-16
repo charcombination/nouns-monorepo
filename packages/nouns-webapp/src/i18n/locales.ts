@@ -1,5 +1,7 @@
-import en, { Locale as DaysJSLocale } from 'dayjs/locale/en';
-import ja from 'dayjs/locale/ja';
+const dayjs = require('dayjs');
+const en = require('dayjs/locale/en');
+const ja = require('dayjs/locale/ja')
+const DaysJSLocale = en.Locale;
 
 export const SUPPORTED_LOCALES = [
   // order as they appear in the language dropdown
@@ -22,7 +24,7 @@ export enum Locales {
 }
 
 // Map SupportedLocale string to DaysJS locale object (used for locale aware time formatting)
-export const SUPPORTED_LOCALE_TO_DAYSJS_LOCALE: { [locale in SupportedLocale]: DaysJSLocale } = {
+export const SUPPORTED_LOCALE_TO_DAYSJS_LOCALE: { [locale in SupportedLocale]: typeof DaysJSLocale } = {
   'en-US': en,
   'ja-JP': ja,
   pseudo: en,
