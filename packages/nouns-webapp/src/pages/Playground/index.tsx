@@ -16,7 +16,6 @@ import { ImageData, getNounData, getRandomNounSeed } from '@nouns/assets';
 import { buildSVG, EncodedImage, PNGCollectionEncoder } from '@nouns/sdk';
 import Noun from '../../components/Noun';
 import { PNG } from 'pngjs';
-import { Trans } from '@lingui/macro';
 import ReactSkinview3d from "react-skinview3d"
 import { WalkingAnimation } from "skinview3d";
 import walking from '../../assets/icons/Walking.png';
@@ -69,13 +68,13 @@ const parseTraitName = (partName: string): string =>
 
 const capitalizeFirstLetter = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
 
-const traitKeyToLocalizedTraitKeyFirstLetterCapitalized = (s: string): ReactNode => {
+const traitKeyToLocalizedTraitKeyFirstLetterCapitalized = (s: string): string | undefined => {
   const traitMap = new Map([
-    ['background', <Trans>Background</Trans>],
-    ['body', <Trans>Body</Trans>],
-    ['accessory', <Trans>Accessory</Trans>],
-    ['head', <Trans>Head</Trans>],
-    ['glasses', <Trans>Glasses</Trans>],
+    ['background', 'Background'],
+    ['body', 'Body'],
+    ['accessory', 'Accessory'],
+    ['head', 'Head'],
+    ['glasses', 'Glasses'],
   ]);
 
   return traitMap.get(s);
@@ -276,10 +275,10 @@ const Playground: React.FC = () => {
         <Row>
           <Col lg={10} className={classes.headerRow}>
             <span>
-              <Trans>Nounish Skins</Trans>
+              Nounish Skins
             </span>
             <h1>
-              <Trans>Skin Builder</Trans>
+              Skin Builder
             </h1>
             
           </Col>
@@ -293,7 +292,7 @@ const Playground: React.FC = () => {
                 }}
                 className={classes.primaryBtn}
               >
-                <Trans>Generate Noun</Trans>
+                Generate Noun
               </Button>
             </Col>
             <Row>
@@ -401,10 +400,8 @@ const Playground: React.FC = () => {
           </Col>
         </Row>
         <p className={classes.comment}>
-          <Trans>
             This site generates Minecraft skins based on Nouns, a generative NFT project. The avatars and skins are in the public domain. 
             The project was built based on the open-source {nounsSiteLink}, the skins are rendered with {skinview3Dlink}.
-          </Trans>
         </p>
       </Container>
       
