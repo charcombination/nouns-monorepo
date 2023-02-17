@@ -24,9 +24,6 @@ import { applyMiddleware, createStore, combineReducers, PreloadedState } from 'r
 import { routerMiddleware } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { nounPath } from './utils/history';
-import { push } from 'connected-react-router';
-import { LanguageProvider } from './i18n/LanguageProvider';
 
 dotenv.config();
 
@@ -62,15 +59,9 @@ export type AppDispatch = typeof store.dispatch;
 
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-    <React.StrictMode>
-      <LanguageProvider>
-                <App />
-              </LanguageProvider>
-      </React.StrictMode>
-    </ConnectedRouter>
-  </Provider>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root'),
 );
 
