@@ -1,7 +1,6 @@
 import classes from './Footer.module.css';
 import { Container } from 'react-bootstrap';
 import { externalURL, ExternalURL } from '../../utils/externalURL';
-import config from '../../config';
 import Link from '../Link';
 
 const Footer = () => {
