@@ -2886,46 +2886,10 @@
   "resolved" "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.2.tgz"
   "version" "1.1.2"
 
-"@graphprotocol/graph-cli@^0.26.0":
-  "integrity" "sha512-DFYzbOztny54xo38LlRTBFtsmuPQdinjxb7t3UnUgIBakyZTUSb+HorlcijBG1z+3RYWSZjDkSq+6BBprwxXgA=="
-  "resolved" "https://registry.npmjs.org/@graphprotocol/graph-cli/-/graph-cli-0.26.1.tgz"
-  "version" "0.26.1"
-  dependencies:
-    "assemblyscript" "0.19.10"
-    "binary-install-raw" "0.0.13"
-    "chalk" "^3.0.0"
-    "chokidar" "^3.0.2"
-    "debug" "^4.1.1"
-    "docker-compose" "^0.23.2"
-    "dockerode" "^2.5.8"
-    "fs-extra" "^9.0.0"
-    "glob" "^7.1.2"
-    "gluegun" "https://github.com/edgeandnode/gluegun#v4.3.1-pin-colors-dep"
-    "graphql" "^15.5.0"
-    "immutable" "^3.8.2"
-    "ipfs-http-client" "^34.0.0"
-    "jayson" "^3.0.2"
-    "js-yaml" "^3.13.1"
-    "node-fetch" "^2.3.0"
-    "pkginfo" "^0.4.1"
-    "prettier" "^1.13.5"
-    "request" "^2.88.0"
-    "semver" "7.3.5"
-    "tmp-promise" "^3.0.2"
-    "which" "2.0.2"
-    "yaml" "^1.5.1"
-
 "@graphprotocol/graph-ts@^0.24.1":
   "integrity" "sha512-2vU4m5ZPQIqMlMce/z5vmOtGHRlRmcRhMfemS3NIwxCSxSBGVnX2zb7QBTzzdQKGwsAZdbz6V0okkOtvohELfQ=="
   "resolved" "https://registry.npmjs.org/@graphprotocol/graph-ts/-/graph-ts-0.24.1.tgz"
   "version" "0.24.1"
-  dependencies:
-    "assemblyscript" "0.19.10"
-
-"@graphprotocol/graph-ts@^0.26.0":
-  "integrity" "sha512-GW/emOJl+35MXgmIxTnUK7dJtPCaB9u5aAwoLVqJ8swogC794O92UrXMVrAJsherUriu+yI9bLMGmNPOIi60jw=="
-  "resolved" "https://registry.npmjs.org/@graphprotocol/graph-ts/-/graph-ts-0.26.0.tgz"
-  "version" "0.26.0"
   dependencies:
     "assemblyscript" "0.19.10"
 
@@ -4389,42 +4353,12 @@
   "resolved" "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.5.tgz"
   "version" "2.0.5"
 
-"@nouns/api@file:/Users/victorfriedrich/nouns-monorepo/packages/nouns-api":
-  "resolved" "file:packages/nouns-api"
-  "version" "0.1.0"
-  dependencies:
-    "@nouns/contracts" "^0.3.0"
-    "dotenv" "^8.2.0"
-    "ethers" "^5.6.8"
-    "express" "^4.17.1"
-    "express-validator" "^6.12.0"
-    "ioredis" "^4.27.6"
-    "nft.storage" "^2.1.1"
-    "sharp" "^0.31.2"
-    "ts-try" "^0.2.0"
-
 "@nouns/assets@^0.4.2", "@nouns/assets@file:/Users/victorfriedrich/nouns-monorepo/packages/nouns-assets":
   "resolved" "file:packages/nouns-assets"
   "version" "0.4.2"
   dependencies:
     "@ethersproject/bignumber" "^5.5.0"
     "@ethersproject/solidity" "^5.5.0"
-
-"@nouns/bots@file:/Users/victorfriedrich/nouns-monorepo/packages/nouns-bots":
-  "resolved" "file:packages/nouns-bots"
-  "version" "0.1.0"
-  dependencies:
-    "@nouns/contracts" "^0.3.0"
-    "discord.js" "^12.5.3"
-    "dotenv" "^8.2.0"
-    "ethers" "^5.6.8"
-    "graphql" "^15.3.0"
-    "graphql-request" "^3.1.0"
-    "ioredis" "^4.27.6"
-    "sharp" "^0.31.2"
-    "tmp" "^0.2.1"
-    "ts-try" "^0.2.0"
-    "twitter-api-v2" "^1.1.1"
 
 "@nouns/contracts@^0.3.0", "@nouns/contracts@file:/Users/victorfriedrich/nouns-monorepo/packages/nouns-contracts":
   "resolved" "file:packages/nouns-contracts"
@@ -4438,10 +4372,6 @@
   dependencies:
     "@nouns/contracts" "^0.3.0"
     "ethers" "^5.6.8"
-
-"@nouns/subgraph@file:/Users/victorfriedrich/nouns-monorepo/packages/nouns-subgraph":
-  "resolved" "file:packages/nouns-subgraph"
-  "version" "0.1.0"
 
 "@nouns/webapp@file:/Users/victorfriedrich/nouns-monorepo/packages/nouns-webapp":
   "resolved" "file:packages/nouns-webapp"
@@ -5422,13 +5352,6 @@
   "resolved" "https://registry.npmjs.org/@types/invariant/-/invariant-2.2.35.tgz"
   "version" "2.2.35"
 
-"@types/ioredis@^4.26.4":
-  "integrity" "sha512-raYHPqRWrfnEoym94BY28mG1+tcZqh3dsp2q7x5IyMAAEvIdu+H0X8diASMpncIm+oHyH9dalOeOnGOL/YnuOA=="
-  "resolved" "https://registry.npmjs.org/@types/ioredis/-/ioredis-4.28.1.tgz"
-  "version" "4.28.1"
-  dependencies:
-    "@types/node" "*"
-
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   "integrity" "sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw=="
   "resolved" "https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz"
@@ -5543,7 +5466,7 @@
     "@types/node" "*"
     "form-data" "^3.0.0"
 
-"@types/node@*", "@types/node@^14.11.2", "@types/node@^14.14.34":
+"@types/node@*", "@types/node@^14.14.34":
   "integrity" "sha512-USUftMYpmuMzeWobskoPfzDi+vkpe0dvcOBRNOscFrGxVp4jomnRxWuVohgqBow2xyIPC0S3gjxV/5079jhmDg=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-14.17.34.tgz"
   "version" "14.17.34"
@@ -5751,13 +5674,6 @@
     "@types/mime" "^1"
     "@types/node" "*"
 
-"@types/sharp@^0.31.0":
-  "integrity" "sha512-nwivOU101fYInCwdDcH/0/Ru6yIRXOpORx25ynEOc6/IakuCmjOAGpaO5VfUl4QkDtUC6hj+Z2eCQvgXOioknw=="
-  "resolved" "https://registry.npmjs.org/@types/sharp/-/sharp-0.31.0.tgz"
-  "version" "0.31.0"
-  dependencies:
-    "@types/node" "*"
-
 "@types/source-list-map@*":
   "integrity" "sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA=="
   "resolved" "https://registry.npmjs.org/@types/source-list-map/-/source-list-map-0.1.2.tgz"
@@ -5786,11 +5702,6 @@
   "version" "0.142.0"
   dependencies:
     "@types/webxr" "*"
-
-"@types/tmp@^0.2.1":
-  "integrity" "sha512-MhSa0yylXtVMsyT8qFpHA1DLHj4DvQGH5ntxrhHSh8PxUVNi35Wk+P5hVgqbO2qZqOotqr9jaoPRL+iRjWYm/A=="
-  "resolved" "https://registry.npmjs.org/@types/tmp/-/tmp-0.2.2.tgz"
-  "version" "0.2.2"
 
 "@types/uglify-js@*":
   "integrity" "sha512-O3MmRAk6ZuAKa9CHgg0Pr0+lUOqoMLpc9AS4R8ano2auvsg7IE8syF3Xh/NPr26TWklxYcqoEEFdzLLs1fV9PQ=="
@@ -9651,6 +9562,7 @@
     "typedarray" "^0.0.6"
 
 "concat-stream@github:hugomrdias/concat-stream#feat/smaller":
+  "resolved" "git+ssh://git@github.com/hugomrdias/concat-stream.git#057bc7b5d6d8df26c8cf00a3f151b6721a0a8034"
   "version" "2.0.0"
   dependencies:
     "inherits" "^2.0.3"
@@ -10890,20 +10802,6 @@
   dependencies:
     "path-type" "^4.0.0"
 
-"discord.js@^12.5.3":
-  "integrity" "sha512-D3nkOa/pCkNyn6jLZnAiJApw2N9XrIsXUAdThf01i7yrEuqUmDGc7/CexVWwEcgbQR97XQ+mcnqJpmJ/92B4Aw=="
-  "resolved" "https://registry.npmjs.org/discord.js/-/discord.js-12.5.3.tgz"
-  "version" "12.5.3"
-  dependencies:
-    "@discordjs/collection" "^0.1.6"
-    "@discordjs/form-data" "^3.0.1"
-    "abort-controller" "^3.0.0"
-    "node-fetch" "^2.6.1"
-    "prism-media" "^1.2.9"
-    "setimmediate" "^1.0.5"
-    "tweetnacl" "^1.0.3"
-    "ws" "^7.4.4"
-
 "dns-equal@^1.0.0":
   "integrity" "sha1-s55/HabrCnW6nBcySzR1PEfgZU0="
   "resolved" "https://registry.npmjs.org/dns-equal/-/dns-equal-1.0.0.tgz"
@@ -11083,11 +10981,6 @@
   "integrity" "sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q=="
   "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-10.0.0.tgz"
   "version" "10.0.0"
-
-"dotenv@^8.2.0":
-  "integrity" "sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g=="
-  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-8.6.0.tgz"
-  "version" "8.6.0"
 
 "dotenv@8.2.0":
   "integrity" "sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw=="
@@ -12569,14 +12462,6 @@
   "resolved" "https://registry.npmjs.org/explain-error/-/explain-error-1.0.4.tgz"
   "version" "1.0.4"
 
-"express-validator@^6.12.0":
-  "integrity" "sha512-gvLqMFPwEm+C1CQlF3l695ubY1Shd3AtfI5JDYXM0Ju0A2GsGX+VjjQN7TcHXF6cO8wPgU8hSSFqWecBR0Gx1g=="
-  "resolved" "https://registry.npmjs.org/express-validator/-/express-validator-6.13.0.tgz"
-  "version" "6.13.0"
-  dependencies:
-    "lodash" "^4.17.21"
-    "validator" "^13.6.0"
-
 "express@^4.14.0", "express@^4.17.1":
   "integrity" "sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ=="
   "resolved" "https://registry.npmjs.org/express/-/express-4.18.2.tgz"
@@ -13856,15 +13741,6 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz"
   "version" "4.2.8"
 
-"graphql-request@^3.1.0":
-  "integrity" "sha512-Nm1EasrAQVZllyNTlHDLnLZjlhC6eRWnWP6KH//ytnAL08pjlLkdI2K+s6OV92p45hn5b/kUlLbDwACmRoLwrQ=="
-  "resolved" "https://registry.npmjs.org/graphql-request/-/graphql-request-3.6.1.tgz"
-  "version" "3.6.1"
-  dependencies:
-    "cross-fetch" "^3.0.6"
-    "extract-files" "^9.0.0"
-    "form-data" "^3.0.0"
-
 "graphql-tag@^2.12.3":
   "integrity" "sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg=="
   "resolved" "https://registry.npmjs.org/graphql-tag/-/graphql-tag-2.12.6.tgz"
@@ -13872,7 +13748,7 @@
   dependencies:
     "tslib" "^2.1.0"
 
-"graphql@^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^15.3.0", "graphql@^15.5.0", "graphql@^15.5.1", "graphql@14.x || 15.x":
+"graphql@^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^15.5.0", "graphql@^15.5.1", "graphql@14.x || 15.x":
   "integrity" "sha512-AnnKk7hFQFmU/2I9YSQf3xw44ctnSFCfp3zE0N6W174gqe9fWG/2rKaKxROK7CcI3XtERpjEKFqts8o319Kf7A=="
   "resolved" "https://registry.npmjs.org/graphql/-/graphql-15.7.2.tgz"
   "version" "15.7.2"
@@ -14763,23 +14639,6 @@
   "version" "1.10.4"
   dependencies:
     "fp-ts" "^1.0.0"
-
-"ioredis@^4.27.6":
-  "integrity" "sha512-kQ+Iv7+c6HsDdPP2XUHaMv8DhnSeAeKEwMbaoqsXYbO+03dItXt7+5jGQDRyjdRUV2rFJbzg7P4Qt1iX2tqkOg=="
-  "resolved" "https://registry.npmjs.org/ioredis/-/ioredis-4.28.2.tgz"
-  "version" "4.28.2"
-  dependencies:
-    "cluster-key-slot" "^1.1.0"
-    "debug" "^4.3.1"
-    "denque" "^1.1.0"
-    "lodash.defaults" "^4.2.0"
-    "lodash.flatten" "^4.4.0"
-    "lodash.isarguments" "^3.1.0"
-    "p-map" "^2.1.0"
-    "redis-commands" "1.7.0"
-    "redis-errors" "^1.2.0"
-    "redis-parser" "^3.0.0"
-    "standard-as-callback" "^2.1.0"
 
 "ip-regex@^2.0.0", "ip-regex@^2.1.0":
   "integrity" "sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk="
@@ -17400,15 +17259,6 @@
   "resolved" "https://registry.npmjs.org/markdown-table/-/markdown-table-1.1.3.tgz"
   "version" "1.1.3"
 
-"matchstick-as@0.4.2":
-  "integrity" "sha512-LbLWA9DLMgus/GIsT7fHxP9cdb/oLQFrjpj2dAcHd64X4wxrVs2VIyxoNlha6h+9lQWHBmdT8042Oi+/wh/idg=="
-  "resolved" "https://registry.npmjs.org/matchstick-as/-/matchstick-as-0.4.2.tgz"
-  "version" "0.4.2"
-  dependencies:
-    "@graphprotocol/graph-ts" "^0.24.1"
-    "assemblyscript" "^0.19.20"
-    "wabt" "1.0.24"
-
 "mcl-wasm@^0.7.1":
   "integrity" "sha512-iJIUcQWA88IJB/5L15GnJVnSQJmf/YaxxV6zRavv83HILHaJQb6y0iFyDMdDO0gN8X37tdxmAOrH/P8B6RB8sQ=="
   "resolved" "https://registry.npmjs.org/mcl-wasm/-/mcl-wasm-0.7.9.tgz"
@@ -18441,11 +18291,6 @@
   "resolved" "https://registry.npmjs.org/murmurhash3js/-/murmurhash3js-3.0.1.tgz"
   "version" "3.0.1"
 
-"mustache@^4.2.0":
-  "integrity" "sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ=="
-  "resolved" "https://registry.npmjs.org/mustache/-/mustache-4.2.0.tgz"
-  "version" "4.2.0"
-
 "mute-stream@~0.0.4", "mute-stream@0.0.8":
   "integrity" "sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA=="
   "resolved" "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.8.tgz"
@@ -18535,6 +18380,7 @@
   "version" "1.4.0"
 
 "ndjson@github:hugomrdias/ndjson#feat/readable-stream3":
+  "resolved" "git+ssh://git@github.com/hugomrdias/ndjson.git#4db16da6b42e5b39bf300c3a7cde62abb3fa3a11"
   "version" "1.5.0"
   dependencies:
     "json-stringify-safe" "^5.0.1"
@@ -18556,16 +18402,6 @@
   "integrity" "sha1-yobR/ogoFpsBICCOPchCS524NCw="
   "resolved" "https://registry.npmjs.org/next-tick/-/next-tick-1.0.0.tgz"
   "version" "1.0.0"
-
-"nft.storage@^2.1.1":
-  "integrity" "sha512-bhYJkLHqHobG6xxIwjUxYyu+xZtv0hvwP+Gi40Rqf42EAaCN3RwpxSDSR6+UbxTemn7chKc0jrydskgSBWyINA=="
-  "resolved" "https://registry.npmjs.org/nft.storage/-/nft.storage-2.1.1.tgz"
-  "version" "2.1.1"
-  dependencies:
-    "@web-std/blob" "^2.1.0"
-    "@web-std/fetch" "^2.0.1"
-    "@web-std/file" "^1.1.0"
-    "@web-std/form-data" "^2.1.0"
 
 "nice-try@^1.0.4":
   "integrity" "sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ=="
@@ -18777,22 +18613,6 @@
   dependencies:
     "is-promise" "~1.0.0"
     "promise" "~1.3.0"
-
-"nodemon@^2.0.7":
-  "integrity" "sha512-gdHMNx47Gw7b3kWxJV64NI+Q5nfl0y5DgDbiVtShiwa7Z0IZ07Ll4RLFo6AjrhzMtoEZn5PDE3/c2AbVsiCkpA=="
-  "resolved" "https://registry.npmjs.org/nodemon/-/nodemon-2.0.15.tgz"
-  "version" "2.0.15"
-  dependencies:
-    "chokidar" "^3.5.2"
-    "debug" "^3.2.7"
-    "ignore-by-default" "^1.0.1"
-    "minimatch" "^3.0.4"
-    "pstree.remy" "^1.1.8"
-    "semver" "^5.7.1"
-    "supports-color" "^5.5.0"
-    "touch" "^3.1.0"
-    "undefsafe" "^2.0.5"
-    "update-notifier" "^5.1.0"
 
 "nofilter@^3.1.0":
   "integrity" "sha512-l2NNj07e9afPnhAhvgVrCD/oy2Ai1yfLpuo3EpiO1jFTsB4sFz6oIfAfSZyQzVpkZQ9xS8ZS5g1jCBgq4Hwo0g=="
@@ -23076,20 +22896,6 @@
   dependencies:
     "kind-of" "^6.0.2"
 
-"sharp@^0.31.2":
-  "integrity" "sha512-DUdNVEXgS5A97cTagSLIIp8dUZ/lZtk78iNVZgHdHbx1qnQR7JAHY0BnXnwwH39Iw+VKhO08CTYhIg0p98vQ5Q=="
-  "resolved" "https://registry.npmjs.org/sharp/-/sharp-0.31.2.tgz"
-  "version" "0.31.2"
-  dependencies:
-    "color" "^4.2.3"
-    "detect-libc" "^2.0.1"
-    "node-addon-api" "^5.0.0"
-    "prebuild-install" "^7.1.1"
-    "semver" "^7.3.8"
-    "simple-get" "^4.0.1"
-    "tar-fs" "^2.1.1"
-    "tunnel-agent" "^0.6.0"
-
 "shebang-command@^1.2.0":
   "integrity" "sha1-RKrGW2lbAzmJaMOfNj/uXer98eo="
   "resolved" "https://registry.npmjs.org/shebang-command/-/shebang-command-1.2.0.tgz"
@@ -24553,13 +24359,6 @@
   dependencies:
     "rimraf" "^3.0.0"
 
-"tmp@^0.2.1":
-  "integrity" "sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ=="
-  "resolved" "https://registry.npmjs.org/tmp/-/tmp-0.2.1.tgz"
-  "version" "0.2.1"
-  dependencies:
-    "rimraf" "^3.0.0"
-
 "tmp@0.1.0":
   "integrity" "sha512-J7Z2K08jbGcdA1kkQpJSqLF6T0tdQqpR2pnSUXsIchbPdTI9v3e85cLW0d6WDhwuAleOV71j2xWs8qMPfK7nKw=="
   "resolved" "https://registry.npmjs.org/tmp/-/tmp-0.1.0.tgz"
@@ -24813,11 +24612,6 @@
   "resolved" "https://registry.npmjs.org/ts-toolbelt/-/ts-toolbelt-6.15.5.tgz"
   "version" "6.15.5"
 
-"ts-try@^0.2.0":
-  "integrity" "sha512-fdm7aSzV/UGoEYKPupBvcNey4huqwDhv06XahfbchNbSVxxyZfz1vfkVw4YUWWzSbatQ9V8meha80uQ+p3zWJA=="
-  "resolved" "https://registry.npmjs.org/ts-try/-/ts-try-0.2.0.tgz"
-  "version" "0.2.0"
-
 "tsconfig-paths@^3.11.0":
   "integrity" "sha512-e5adrnOYT6zqVnWqZu7i/BQ3BnhzvGbjEjejFXO20lKIKpwTaupkCPgEfv4GZK1IBciJUEhYs3J3p75FdaTFVg=="
   "resolved" "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.12.0.tgz"
@@ -24901,11 +24695,6 @@
   "integrity" "sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q="
   "resolved" "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz"
   "version" "0.14.5"
-
-"twitter-api-v2@^1.1.1":
-  "integrity" "sha512-FxP2Yr9/U4G9Qj0WEay23Bf+RGQ1lnJCCm+nhmVJOkMJSi4Gr0OQzwezhD10sdBR8YDPxssFE25oqydQDh+nig=="
-  "resolved" "https://registry.npmjs.org/twitter-api-v2/-/twitter-api-v2-1.7.0.tgz"
-  "version" "1.7.0"
 
 "type-check@^0.4.0":
   "integrity" "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew=="
