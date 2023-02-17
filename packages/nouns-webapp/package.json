@@ -60,10 +60,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn i18n:compile && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "yarn"
+    "prepare": ""
   },
   "eslintConfig": {
     "extends": [
