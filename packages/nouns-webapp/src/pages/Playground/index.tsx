@@ -2,23 +2,18 @@ import {
   Container,
   Col,
   Button,
-  Image,
   Row,
   FloatingLabel,
   Form,
-  OverlayTrigger,
-  Popover,
 } from 'react-bootstrap';
 import classes from './Playground.module.css';
 import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import Link from '../../components/Link';
-//import { ImageData, getNounData, getRandomNounSeed } from 'packages/nouns-webapp/src/nounsdao-assets';
 import ImageData from '../../nounsdao-assets/image-data.json';
 import { getNounData, getRandomNounSeed } from '../../nounsdao-assets/utils';
 import { EncodedImage } from '../../nounsdao-assets/types/types';
 import { PNGCollectionEncoder } from '../../nounsdao-assets/png-collection-encoder';
 import { buildSVG } from '../../nounsdao-assets/svg-builder';
-//import { buildSVG, EncodedImage, PNGCollectionEncoder } from '@nouns/sdk';
 import Noun from '../../components/Noun';
 import { PNG } from 'pngjs';
 import ReactSkinview3d from "react-skinview3d"
