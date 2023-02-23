@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Image = void 0;
 const utils_1 = require("./utils2");
 /**
  * A class used to convert an image into the following RLE format:
@@ -114,5 +111,6 @@ class Image {
         }
         return true;
     }
+    
 }
 exports.Image = Image;

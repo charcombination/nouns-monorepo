@@ -15,7 +15,7 @@ import Link from '../../components/Link';
 //import { ImageData, getNounData, getRandomNounSeed } from 'packages/nouns-webapp/src/nounsdao-assets';
 import ImageData from '../../nounsdao-assets/image-data.json';
 import { getNounData, getRandomNounSeed } from '../../nounsdao-assets/utils';
-import { EncodedImage } from '../../nounsdao-assets/types';
+import { EncodedImage } from '../../nounsdao-assets/types/types';
 import { PNGCollectionEncoder } from '../../nounsdao-assets/png-collection-encoder';
 import { buildSVG } from '../../nounsdao-assets/svg-builder';
 //import { buildSVG, EncodedImage, PNGCollectionEncoder } from '@nouns/sdk';

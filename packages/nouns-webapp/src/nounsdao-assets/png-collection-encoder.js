@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,8 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PNGCollectionEncoder = void 0;
+
 const fs_1 = require("fs");
 const image_1 = require("./image");
 /**
@@ -43,14 +41,11 @@ class PNGCollectionEncoder {
      * @param png The png image data
      * @param folder An optional containing folder name
      */
-    encodeImage(name, png, folder) {
+    encodeImage(name, png) {
         var _a;
         const image = new image_1.Image(png.width, png.height, png.rgbaAt);
         const rle = image.toRLE(this._colors);
         this._images.set(name, rle);
-        if (folder) {
-            ((_a = this._folders)[folder] || (_a[folder] = [])).push(name);
-        }
         return rle;
     }
     /**
@@ -94,4 +89,4 @@ class PNGCollectionEncoder {
         return data;
     }
 }
-exports.PNGCollectionEncoder = PNGCollectionEncoder;
+export { PNGCollectionEncoder };
