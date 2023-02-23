@@ -18,10 +18,12 @@ import Noun from '../../components/Noun';
 import { PNG } from 'pngjs';
 import ReactSkinview3d from "react-skinview3d"
 import { WalkingAnimation } from "skinview3d";
+import { IdleAnimation } from "skinview3d";
 import walking from '../../assets/icons/Walking.png';
 import standing from '../../assets/icons/Standing.png';
 import download from '../../assets/icons/Download.png';
 import ImageOverlay from '../../components/ImageOverlay';
+import { SkinViewer } from "skinview3d";
 
 interface Trait {
   title: string;
@@ -95,6 +97,9 @@ const Playground: React.FC = () => {
   const [overlay, setOverlay] = useState<string | null>(null);
   const [color, setColor] = useState<string | null>("#d5d7e1");
   const [skinImages, setSkinImages] = useState<string[] | null>();
+  const [moving, setMoving] = useState<boolean>(true);
+
+  const viewerRef = useRef<SkinViewer>();
 
   function handleOverlayGenerated(base64: string | null) {
     setOverlay(base64);
@@ -111,6 +116,13 @@ const Playground: React.FC = () => {
 
   function handleDownloadClick() {
     downloadBase64Image(overlay!, 'noun.png');
+  }
+
+  function toggleMovement() {
+    setMoving(!moving);
+
+    if (!viewerRef.current) return;
+    viewerRef.current.animation = moving ? new IdleAnimation() : new WalkingAnimation();
   }
 
   const generateNounSvg = React.useCallback(
@@ -377,6 +389,7 @@ const Playground: React.FC = () => {
                               viewer.camera.position.y = 22.5;
                               viewer.camera.position.z = 52.0;
 
+                              viewerRef.current = viewer;
                               viewer.animation = new WalkingAnimation();
                               viewer.animation.speed = 0.7;
                             }}
@@ -387,8 +400,8 @@ const Playground: React.FC = () => {
                             <img src={download} alt="Download" />
                           </button>
 
-                          <button className={classes.movement}>
-                            <img src={walking} alt="Toggle Movement" />
+                          <button className={classes.movement} onClick={toggleMovement}>
+                            <img src={moving ? walking : standing} alt="Toggle Movement" />
                           </button>
                         </div>
                       )}
