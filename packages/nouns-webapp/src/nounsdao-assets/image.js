@@ -113,4 +113,4 @@ class Image {
     }
     
 }
-exports.Image = Image;
+export { Image };
