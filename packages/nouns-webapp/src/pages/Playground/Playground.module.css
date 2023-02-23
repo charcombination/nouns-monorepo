@@ -26,6 +26,7 @@
   border-top: 4px solid #6BC349;
   border-bottom: 4px solid #2A631D;
   border-radius: 0px;
+  outline: none;
 }
 .primaryBtn:focus,
 .primaryBtn:hover {
