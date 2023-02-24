@@ -11,8 +11,8 @@ const Footer = () => {
     <div className={classes.wrapper}>
       <Container className={classes.container}>
         <footer className={classes.footerSignature}>
+          <Link text="Imprint" url={discourseURL} leavesPage={false} />
           <Link text="Twitter" url={twitterURL} leavesPage={true} />
-          <Link text="Forums" url={discourseURL} leavesPage={false} />
         </footer>
       </Container>
     </div>
