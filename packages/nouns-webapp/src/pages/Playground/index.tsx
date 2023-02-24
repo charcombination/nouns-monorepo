@@ -7,15 +7,13 @@ import {
   Form,
 } from 'react-bootstrap';
 import classes from './Playground.module.css';
-import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from '../../components/Link';
 import ImageData from '../../nounsdao-assets/image-data.json';
 import { getNounData, getRandomNounSeed } from '../../nounsdao-assets/utils';
-import { EncodedImage } from '../../nounsdao-assets/types/types';
 import { PNGCollectionEncoder } from '../../nounsdao-assets/png-collection-encoder';
 import { buildSVG } from '../../nounsdao-assets/svg-builder';
 import Noun from '../../components/Noun';
-import { PNG } from 'pngjs';
 import ReactSkinview3d from "react-skinview3d"
 import { WalkingAnimation } from "skinview3d";
 import { IdleAnimation } from "skinview3d";
@@ -24,46 +22,21 @@ import standing from '../../assets/icons/Standing.png';
 import download from '../../assets/icons/Download.png';
 import ImageOverlay from '../../components/ImageOverlay';
 import { SkinViewer } from "skinview3d";
+import { externalURL, ExternalURL } from '../../utils/externalURL';
 
 interface Trait {
   title: string;
   traitNames: string[];
 }
 
-interface PendingCustomTrait {
-  type: string;
-  data: string;
-  filename: string;
-}
+const nounsSiteLink = externalURL(ExternalURL.nouns);
+const skinviewSiteLink = externalURL(ExternalURL.reactskinview);
 
+const nounsLink = <Link text="Nouns Website" url={nounsSiteLink} leavesPage={true}/>;
+const skinview3dLink = <Link text="React Skinview3D" url={skinviewSiteLink} leavesPage={true}/>
 
-
-const nounsSiteLink = (
-  <Link
-    text="Nouns Website"
-    url="https://github.com/nounsDAO/nouns-monorepo/tree/master/packages/nouns-assets"
-    leavesPage={true}
-  />
-);
-
-const skinview3Dlink = (
-  <Link
-    text="React Skinview3D"
-    url="https://github.com/Hacksore/react-skinview3d"
-    leavesPage={true}
-  />
-);
-
-const DEFAULT_TRAIT_TYPE = 'heads';
 
 const encoder = new PNGCollectionEncoder(ImageData.palette);
-
-const traitKeyToTitle: Record<string, string> = {
-  heads: 'head',
-  glasses: 'glasses',
-  bodies: 'body',
-  accessories: 'accessory',
-};
 
 const parseTraitName = (partName: string): string =>
   capitalizeFirstLetter(partName.substring(partName.indexOf('-') + 1));
@@ -87,13 +60,8 @@ const Playground: React.FC = () => {
   const [traits, setTraits] = useState<Trait[]>();
   const [modSeed, setModSeed] = useState<{ [key: string]: number }>();
   const [initLoad, setInitLoad] = useState<boolean>(true);
-  const [displayNoun, setDisplayNoun] = useState<boolean>(false);
-  const [indexOfNounToDisplay, setIndexOfNounToDisplay] = useState<number>();
   const [selectIndexes, setSelectIndexes] = useState<Record<string, number>>({});
-  const [pendingTrait, setPendingTrait] = useState<PendingCustomTrait>();
-  const [isPendingTraitValid, setPendingTraitValid] = useState<boolean>();
 
-  const customTraitFileRef = useRef<HTMLInputElement>(null);
   const [overlay, setOverlay] = useState<string | null>(null);
   const [color, setColor] = useState<string | null>("#d5d7e1");
   const [skinImages, setSkinImages] = useState<string[] | null>();
@@ -142,7 +110,7 @@ const Playground: React.FC = () => {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [pendingTrait, modSeed],
+    [modSeed],
   );
 
   useEffect(() => {
@@ -193,92 +161,6 @@ const Playground: React.FC = () => {
         [trait.title]: traitIndex,
       };
     });
-  };
-
-  const resetTraitFileUpload = () => {
-    if (customTraitFileRef.current) {
-      customTraitFileRef.current.value = '';
-    }
-  };
-
-  let pendingTraitErrorTimeout: NodeJS.Timeout;
-  const setPendingTraitInvalid = () => {
-    setPendingTraitValid(false);
-    resetTraitFileUpload();
-    pendingTraitErrorTimeout = setTimeout(() => {
-      setPendingTraitValid(undefined);
-    }, 5_000);
-  };
-
-  const validateAndSetCustomTrait = (file: File | undefined) => {
-    if (pendingTraitErrorTimeout) {
-      clearTimeout(pendingTraitErrorTimeout);
-    }
-    if (!file) {
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = e => {
-      try {
-        const buffer = Buffer.from(e?.target?.result!);
-        const png = PNG.sync.read(buffer);
-        if (png.width !== 32 || png.height !== 32) {
-          throw new Error('Image must be 32x32');
-        }
-        const filename = file.name?.replace('.png', '') || 'custom';
-        const data = encoder.encodeImage(filename, {
-          width: png.width,
-          height: png.height,
-          rgbaAt: (x: number, y: number) => {
-            const idx = (png.width * y + x) << 2;
-            const [r, g, b, a] = [
-              png.data[idx],
-              png.data[idx + 1],
-              png.data[idx + 2],
-              png.data[idx + 3],
-            ];
-            return {
-              r,
-              g,
-              b,
-              a,
-            };
-          },
-        });
-        setPendingTrait({
-          data,
-          filename,
-          type: DEFAULT_TRAIT_TYPE,
-        });
-        setPendingTraitValid(true);
-      } catch (error) {
-        setPendingTraitInvalid();
-      }
-    };
-    reader.readAsArrayBuffer(file);
-  };
-
-  const uploadCustomTrait = () => {
-    const { type, data, filename } = pendingTrait || {};
-    if (type && data && filename) {
-      const images = ImageData.images as Record<string, EncodedImage[]>;
-      images[type].unshift({
-        filename,
-        data,
-      });
-      const title = traitKeyToTitle[type];
-      const trait = traits?.find(t => t.title === title);
-
-      resetTraitFileUpload();
-      setPendingTrait(undefined);
-      setPendingTraitValid(undefined);
-      traitButtonHandler(trait!, 0);
-      setSelectIndexes({
-        ...selectIndexes,
-        [title]: 0,
-      });
-    }
   };
 
   return (
@@ -348,19 +230,12 @@ const Playground: React.FC = () => {
                   return (
                     <Col xs={6} lg={6} key={i}>
                       {i % 2 === 0 ? (
-                        <div
-                        onClick={() => {
-                          setIndexOfNounToDisplay(i);
-                          setDisplayNoun(true);
-                        }}
-                        >
-                          <Noun
+                        <Noun
                           imgPath={`data:image/svg+xml;base64,${btoa(svg)}`}
                           alt="noun"
                           className={classes.nounImg}
                           wrapperClassName={classes.nounWrapper}
-                          />
-                        </div>
+                        />
                       ) : (
                         <div className={classes.canvaswrapper} style={{backgroundColor: `${color}`}}
                         >
@@ -414,7 +289,7 @@ const Playground: React.FC = () => {
         </Row>
         <p className={classes.comment}>
             This site generates Minecraft skins based on Nouns, a generative NFT project. The avatars and skins are in the public domain. 
-            The project was built based on the open-source {nounsSiteLink}, the skins are rendered with {skinview3Dlink}.
+            The project was built based on the open-source {nounsLink}, the skins are rendered with {skinview3dLink}.
         </p>
       </Container>
       
