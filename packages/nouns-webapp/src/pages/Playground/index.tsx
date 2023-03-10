@@ -23,6 +23,7 @@ import download from '../../assets/icons/Download.png';
 import ImageOverlay from '../../components/ImageOverlay';
 import { SkinViewer } from "skinview3d";
 import { externalURL, ExternalURL } from '../../utils/externalURL';
+import { isMobileScreen } from '../../utils/isMobile';
 
 interface Trait {
   title: string;
@@ -165,6 +166,11 @@ const Playground: React.FC = () => {
 
   return (
     <>
+      { isMobileScreen() && 
+      <div className={classes.warning}>
+        <p>This page is not yet optimized for mobile</p>
+      </div>
+      }
       <Container fluid="lg">
         <Row>
           <Col lg={10} className={classes.headerRow}>

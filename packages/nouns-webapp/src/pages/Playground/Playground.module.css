@@ -118,3 +118,8 @@ canvas {
   top: 64px;
   right: 14px;
 }
+
+.warning {
+  background-color: orange;
+  color: white;
+}
