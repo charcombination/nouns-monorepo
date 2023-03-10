@@ -55,12 +55,12 @@
 }
 .traitFormBtn {
   height: 100% !important;
-  width: 100%;
-  margin: 0.35rem 0;
+  width: 110%;
+  margin: 0.25rem 0;
   /* border-radius: 12px; */
   background-color: white !important;
   border-color: #e2e3e8 !important;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: #14161b;
 }
