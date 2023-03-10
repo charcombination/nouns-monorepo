@@ -10,7 +10,7 @@ const Footer = () => {
     <div className={classes.wrapper}>
       <Container className={classes.container}>
         <footer className={classes.footerSignature}>
-          <Link text="Imprint" url={''} leavesPage={false} />
+          <Link text="Contact" url={'mailto:charcombination@gmail.com'} leavesPage={false} />
           <Link text="Twitter" url={twitterURL} leavesPage={true} />
         </footer>
       </Container>
