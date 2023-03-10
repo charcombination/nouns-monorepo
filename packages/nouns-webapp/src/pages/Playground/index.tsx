@@ -288,8 +288,8 @@ const Playground: React.FC = () => {
           </Col>
         </Row>
         <p className={classes.comment}>
-            This site generates Minecraft skins based on Nouns, a generative NFT project. The avatars and skins are in the public domain. 
-            The project was built based on the open-source {nounsLink}, the skins are rendered with {skinview3dLink}.
+          This is a collection of nounish-themed skins for Minecraft. The Nouns and skins are in the public domain. 
+          The project was built based on the open-source {nounsLink}, the skins are rendered with {skinview3dLink}.
         </p>
       </Container>
       
