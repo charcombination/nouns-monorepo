@@ -8,7 +8,7 @@
 }
 .headerRow h1 {
   color: #14161b;
-  font-size: 56px;
+  font-size: 54px;
   font-family: 'Londrina Solid';
 }
 .headerRow p {
@@ -119,7 +119,10 @@ canvas {
   right: 14px;
 }
 
-.warning {
-  background-color: orange;
-  color: white;
+.disclaimer {
+  color: gray;
+  border-left: 1.5px solid lightgray;
+  margin-top: 25px;
+  padding-left: 8px;
+  font-size: 13px;
 }

@@ -180,16 +180,6 @@ const Playground: React.FC = () => {
         </Row>
         <Row>
           <Col lg={3}>
-            <Col lg={12}>
-              <Button
-                onClick={() => {
-                  generateNounSvg();
-                }}
-                className={classes.primaryBtnM}
-              >
-                Generate Skin
-              </Button>
-            </Col>
             <Row className={classes.selection}>
               {traits &&
                 traits.map((trait, index) => {
@@ -223,6 +213,16 @@ const Playground: React.FC = () => {
                   );
                 })}
             </Row>
+            <Col lg={12}>
+              <Button
+                onClick={() => {
+                  generateNounSvg();
+                }}
+                className={classes.primaryBtnM}
+              >
+                Generate Skin
+              </Button>
+            </Col>
           </Col>
           <Col lg={9}>
             <Row>
@@ -252,8 +252,8 @@ const Playground: React.FC = () => {
                             <ReactSkinview3d
                             className="viewer"
                             skinUrl={overlay}
-                            height={475}
-                            width={475}
+                            height={400}
+                            width={420}
                             onReady={({ viewer }) => {
                               viewer.autoRotate = false;
                               viewer.fov = 36;
@@ -292,6 +292,8 @@ const Playground: React.FC = () => {
           This is a collection of nounish-themed skins for Minecraft. The Nouns and skins are in the public domain. 
           The project was built based on the open-source {nounsLink}, the skins are rendered with {skinview3dLink}.
         </p>
+
+        <p className={classes.disclaimer}>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.</p>
       </Container>
       
     </>

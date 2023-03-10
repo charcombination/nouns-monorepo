@@ -292,6 +292,8 @@ const Playground: React.FC = () => {
           This is a collection of nounish-themed skins for Minecraft. The Nouns and skins are in the public domain. 
           The project was built based on the open-source {nounsLink}, the skins are rendered with {skinview3dLink}.
         </p>
+
+        <p className={classes.disclaimer}>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.</p>
       </Container>
       
     </>
