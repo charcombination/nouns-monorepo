@@ -187,7 +187,7 @@ const Playground: React.FC = () => {
                 }}
                 className={classes.primaryBtn}
               >
-                Generate Noun
+                Generate Skin
               </Button>
             </Col>
             <Row>
