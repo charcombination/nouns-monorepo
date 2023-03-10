@@ -6,7 +6,7 @@ import {
   FloatingLabel,
   Form,
 } from 'react-bootstrap';
-import classes from './Playground.module.css';
+import classes from './PlaygroundMobile.module.css';
 import React, { useEffect, useRef, useState } from 'react';
 import Link from '../../components/Link';
 import ImageData from '../../nounsdao-assets/image-data.json';
@@ -185,16 +185,16 @@ const Playground: React.FC = () => {
                 onClick={() => {
                   generateNounSvg();
                 }}
-                className={classes.primaryBtn}
+                className={classes.primaryBtnM}
               >
                 Generate Noun
               </Button>
             </Col>
-            <Row>
+            <Row className={classes.selection}>
               {traits &&
                 traits.map((trait, index) => {
                   return (
-                    <Col lg={12} xs={6}>
+                    <Col lg={12} xs={4}>
                       <Form className={classes.traitForm}>
                         <FloatingLabel
                           controlId="floatingSelect"
@@ -229,8 +229,8 @@ const Playground: React.FC = () => {
               {nounSvgs &&
                 nounSvgs.map((svg, i) => {
                   return (
-                    <Col xs={6} lg={6} key={i}>
-                      {i % 2 === 0 ? (
+                    <Col xs={12} lg={6} key={i}>
+                      {i % 2 === 1 ? (
                         <Noun
                           imgPath={`data:image/svg+xml;base64,${btoa(svg)}`}
                           alt="noun"
@@ -252,8 +252,8 @@ const Playground: React.FC = () => {
                             <ReactSkinview3d
                             className="viewer"
                             skinUrl={overlay}
-                            height={400}
-                            width={400}
+                            height={475}
+                            width={475}
                             onReady={({ viewer }) => {
                               viewer.autoRotate = false;
                               viewer.fov = 36;
